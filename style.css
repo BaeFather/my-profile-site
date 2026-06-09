@@ -1,0 +1,142 @@
+/* 타이핑 커서 애니메이션 */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #ff6b35;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Skill 태그 스타일 */
+.skill-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.5);
+    transform: translateX(8px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+}
+
+.skill-tag span:last-child {
+    color: #e5e7eb;
+    font-size: 0.95rem;
+}
+
+/* Skill 항목 스타일 */
+.skill-item {
+    padding: 1.25rem;
+    padding-left: 1.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #ff6b35;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.skill-item:hover {
+    background: rgba(255, 107, 53, 0.08);
+    padding-left: 2.25rem;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.15);
+}
+
+/* 레거시: Skill 카드 스타일 */
+.skill-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 107, 53, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+}
+
+/* Portfolio 카드 스타일 */
+.portfolio-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.portfolio-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 107, 53, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(255, 107, 53, 0.25);
+}
+
+.portfolio-badge {
+    width: 4px;
+    height: 24px;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+/* 네비게이션 스크롤 효과 */
+#navbar.scrolled {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 활성 네비게이션 링크 */
+.nav-link.active {
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+/* 부드러운 스크롤 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+    .typing-cursor {
+        margin-left: 2px;
+    }
+
+    .portfolio-card:hover {
+        transform: translateY(-4px);
+    }
+}
