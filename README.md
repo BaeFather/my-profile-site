@@ -60,6 +60,8 @@ python -m http.server 8080
 ```
 
 이후 브라우저에서 `http://localhost:8080` 접속
+배포 사이트 : `https://baefather.github.io/my-profile-site/`
+
 
 **방법 3 — VS Code Live Server**
 
