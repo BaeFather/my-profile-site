@@ -69,12 +69,14 @@
 
     <!-- Hero 섹션 -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <!-- 배경 그라데이션 레이어 -->
-        <div class="absolute inset-0" style="background: linear-gradient(135deg, #0a0d1a 0%, #0f1419 40%, #111827 70%, #0d1117 100%)"></div>
-        <!-- 오렌지 글로우 포인트 -->
-        <div class="absolute inset-0" style="background-image: radial-gradient(ellipse at 15% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(255, 131, 89, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 60% 90%, rgba(180, 60, 20, 0.07) 0%, transparent 45%)"></div>
-        <!-- 미세 노이즈 느낌의 어두운 오버레이 -->
-        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.4) 100%)"></div>
+        <!-- 배경 기본 다크 -->
+        <div class="absolute inset-0" style="background: #0a0d1a"></div>
+        <!-- 중앙 집중 오렌지 글로우 -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255, 107, 53, 0.09) 0%, rgba(180, 60, 20, 0.04) 40%, transparent 70%)"></div>
+        <!-- 중앙 내부 밝은 코어 -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse 40% 35% at 50% 50%, rgba(255, 140, 80, 0.05) 0%, transparent 100%)"></div>
+        <!-- 상하단 어두운 비네팅 -->
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.5) 100%)"></div>
 
         <div class="relative z-10 px-4 max-w-6xl w-full">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -122,7 +124,7 @@
                         <div class="absolute -inset-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full opacity-20 blur-2xl"></div>
 
                         <!-- 프로필 사진 프레임 -->
-                        <div class="relative w-80 h-80 rounded-full overflow-hidden border-4 border-orange-500/40 shadow-2xl shadow-orange-500/30">
+                        <div class="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl shadow-orange-500/30">
                             <img src="profile.jpg" alt="Jayson.B 프로필" class="w-full h-full object-cover">
                         </div>
 
