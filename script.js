@@ -1,90 +1,158 @@
-// AOS 초기화
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100
-});
+// ============================================
+// SCROLL REVEAL (Intersection Observer)
+// ============================================
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target); // 한 번만 실행
+      }
+    });
+  },
+  { threshold: 0.06 } // rootMargin 제거 — 하단 컷오프 없이 자연스럽게 트리거
+);
 
-// 타이핑 애니메이션
-const typingTexts = ['풀스택 개발자', '기술 리더', '인프라 엔지니어'];
-let currentIndex = 0;
-const typingElement = document.getElementById('typing-text');
-const speed = 100;
-const delayBetweenWords = 2000;
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-function typeText() {
-    const text = typingTexts[currentIndex];
-    let charIndex = 0;
+// ============================================
+// COUNTER ANIMATION
+// ============================================
+const counterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1600;
 
-    function type() {
-        if (charIndex < text.length) {
-            typingElement.textContent = text.substring(0, charIndex + 1);
-            charIndex++;
-            setTimeout(type, speed);
-        } else {
-            setTimeout(eraseText, delayBetweenWords);
+      // reveal 트랜지션(0.55s)이 끝난 후 카운터 시작
+      setTimeout(() => {
+        const start = performance.now();
+
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = target;
+          }
         }
-    }
 
-    function eraseText() {
-        if (charIndex > 0) {
-            typingElement.textContent = text.substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(eraseText, speed / 2);
-        } else {
-            currentIndex = (currentIndex + 1) % typingTexts.length;
-            setTimeout(typeText, 500);
-        }
-    }
+        requestAnimationFrame(tick);
+      }, 560);
 
-    type();
+      counterObserver.unobserve(el);
+    });
+  },
+  { threshold: 0.5 }
+);
+
+document.querySelectorAll('.counter').forEach((el) => counterObserver.observe(el));
+
+// ============================================
+// TYPING ANIMATION
+// ============================================
+const typingEl = document.getElementById('typing-text');
+const phrases = [
+  '풀스택 백엔드 개발자',
+  'Tech Leader',
+  '인프라 엔지니어',
+  'AI 바이브코더',
+];
+
+let phraseIdx = 0;
+let charIdx = 0;
+let erasing = false;
+
+const TYPE_MS  = 80;
+const ERASE_MS = 38;
+const PAUSE_MS = 2400;
+
+function typeLoop() {
+  const phrase = phrases[phraseIdx];
+
+  if (!erasing) {
+    typingEl.textContent = phrase.slice(0, charIdx + 1);
+    charIdx++;
+    if (charIdx === phrase.length) {
+      erasing = true;
+      setTimeout(typeLoop, PAUSE_MS);
+    } else {
+      setTimeout(typeLoop, TYPE_MS);
+    }
+  } else {
+    typingEl.textContent = phrase.slice(0, charIdx - 1);
+    charIdx--;
+    if (charIdx === 0) {
+      erasing = false;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      setTimeout(typeLoop, 320);
+    } else {
+      setTimeout(typeLoop, ERASE_MS);
+    }
+  }
 }
 
-typeText();
+typeLoop();
 
-// 네비게이션 스크롤 감지
-const navbar = document.getElementById('navbar');
+// ============================================
+// NAVIGATION
+// ============================================
+const nav      = document.getElementById('nav');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
-window.addEventListener('scroll', () => {
-    // 스크롤 시 네비게이션 배경 전환
-    if (window.scrollY > 0) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+let ticking = false;
 
-    // 현재 섹션에 따라 활성 링크 업데이트
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+
     let current = '';
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+      if (window.scrollY >= section.offsetTop - 140) {
+        current = section.id;
+      }
     });
 
     navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
+      link.classList.toggle(
+        'active',
+        link.getAttribute('href') === `#${current}`
+      );
     });
+
+    ticking = false;
+  });
+}, { passive: true });
+
+// ============================================
+// MOBILE MENU
+// ============================================
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+const hSpans    = hamburger.querySelectorAll('span');
+
+function openMenu() {
+  navMobile.classList.add('open');
+  hSpans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+  hSpans[1].style.opacity   = '0';
+  hSpans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+}
+
+function closeMenu() {
+  navMobile.classList.remove('open');
+  hSpans.forEach((s) => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+hamburger.addEventListener('click', () => {
+  navMobile.classList.contains('open') ? closeMenu() : openMenu();
 });
 
-// 모바일 메뉴 토글
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-
-menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-
-// 모바일 메뉴 링크 클릭 시 닫기
-const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-mobileMenuLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
-});
+navMobile.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
