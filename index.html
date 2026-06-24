@@ -1,377 +1,488 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayson.B - 풀스택 개발자</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- AOS 애니메이션 -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- 커스텀 CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f1419;
-            color: #e5e7eb;
-        }
-
-        :root {
-            --primary-orange: #ff6b35;
-            --primary-coral: #ff8359;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayson.B · Fullstack Developer</title>
+  <meta name="description" content="25년 경력의 풀스택 백엔드 개발자 Jayson.B. 금융·교육·광고·콘텐츠 플랫폼 개발 경험.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <!-- 로고 -->
-            <div class="flex items-center">
-                <span class="text-4xl font-bold text-white">Jayson.B</span>
-            </div>
 
-            <!-- 데스크톱 메뉴 -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="nav-link text-gray-300 hover:text-white transition">About</a>
-                <a href="#skills" class="nav-link text-gray-300 hover:text-white transition">Skills</a>
-                <a href="#portfolio" class="nav-link text-gray-300 hover:text-white transition">Portfolio</a>
-                <a href="#contact" class="nav-link text-gray-300 hover:text-white transition">Contact</a>
-            </div>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Jayson<span>.</span>B</a>
+      <nav class="nav-links">
+        <a href="#about"  class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#career" class="nav-link">Career</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="nav-hamburger" id="hamburger" aria-label="메뉴">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#career">Career</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
 
-            <!-- 모바일 메뉴 버튼 -->
-            <button id="menu-toggle" class="md:hidden text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-mesh" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-content reveal">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Full Stack 엔지니어 · 인프라 · AI 코딩
         </div>
 
-        <!-- 모바일 드롭다운 메뉴 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-white transition">About</a>
-                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-white transition">Skills</a>
-                <a href="#portfolio" class="block px-3 py-2 text-gray-300 hover:text-white transition">Portfolio</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-white transition">Contact</a>
-            </div>
+        <h1 class="hero-name">
+          <span class="name-en">Jayson.B</span>
+        </h1>
+
+        <div class="hero-role">
+          <span id="typing-text">풀스택 백엔드 개발자</span><span class="cursor"></span>
         </div>
-    </nav>
 
-    <!-- Hero 섹션 -->
-    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <!-- 배경 기본 다크 -->
-        <div class="absolute inset-0" style="background: #0a0d1a"></div>
-        <!-- 중앙 집중 오렌지 글로우 -->
-        <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255, 107, 53, 0.09) 0%, rgba(180, 60, 20, 0.04) 40%, transparent 70%)"></div>
-        <!-- 중앙 내부 밝은 코어 -->
-        <div class="absolute inset-0" style="background: radial-gradient(ellipse 40% 35% at 50% 50%, rgba(255, 140, 80, 0.05) 0%, transparent 100%)"></div>
-        <!-- 상하단 어두운 비네팅 -->
-        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.5) 100%)"></div>
+        <p class="hero-desc">
+          서버부터 프론트까지, <strong>인프라 구축부터 운영까지</strong><br>
+          금융 · 교육 · 광고 · 콘텐츠 플랫폼을 직접 설계하고 이끌어온<br>
+          실무형 풀스택 기술 리더입니다.
+        </p>
 
-        <div class="relative z-10 px-4 max-w-6xl w-full">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- 좌측: 텍스트 정보 -->
-                <div data-aos="fade-right">
-                    <div class="mb-6">
-                        <p class="text-orange-500 font-semibold text-lg mb-2">안녕하세요 👋</p>
-                        <h1 class="text-5xl md:text-6xl font-900 text-white mb-4">
-                            Jayson.B
-                        </h1>
-                    </div>
-
-                    <!-- 타이핑 애니메이션 -->
-                    <div class="text-xl md:text-2xl h-12 mb-8 flex items-center">
-                        <span class="text-orange-500 font-bold">
-                            <span id="typing-text">풀스택 개발자</span><span class="typing-cursor">|</span>
-                        </span>
-                    </div>
-
-                    <!-- 소개문 -->
-                    <div class="space-y-4 mb-8">
-                        <p class="text-lg text-gray-300 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                            개발부터 인프라 운영까지 가능한 <span class="text-orange-500 font-semibold">실무형 개발 리더</span>
-                        </p>
-                        <p class="text-lg text-gray-300 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                            서비스의 흐름과 비즈니스를 이해하고 <span class="text-orange-500 font-semibold">안정적으로 성장</span>시킬 수 있는 기술 리더
-                        </p>
-                    </div>
-
-                    <!-- CTA 버튼 -->
-                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <a href="#portfolio" class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                            포트폴리오 보기
-                        </a>
-                        <a href="#contact" class="px-8 py-4 border-2 border-orange-500 text-orange-500 hover:bg-orange-500/10 font-semibold rounded-lg transition-all duration-300 text-center">
-                            연락하기
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 우측: 프로필 사진 -->
-                <div class="flex justify-center" data-aos="fade-left">
-                    <div class="relative">
-                        <!-- 배경 그라데이션 원 -->
-                        <div class="absolute -inset-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full opacity-20 blur-2xl"></div>
-
-                        <!-- 프로필 사진 프레임 -->
-                        <div class="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl shadow-orange-500/30">
-                            <img src="profile.jpg" alt="Jayson.B 프로필" class="w-full h-full object-cover" style="filter: blur(1.5px)">
-                        </div>
-
-                        <!-- 데코레이션 요소 -->
-                        <div class="absolute -bottom-4 -right-4 w-40 h-40 bg-orange-500/15 rounded-full blur-3xl"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-actions">
+          <a href="#career"  class="btn btn-primary">경력 보기</a>
+          <a href="#contact" class="btn btn-secondary">연락하기</a>
+          <a href="https://github.com/BaeFather" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- About 섹션 -->
-    <section id="about" class="py-20 px-4 bg-slate-800/20">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-white" data-aos="fade-up">
-                소개
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- 아바타 -->
-                <div class="flex justify-center" data-aos="fade-right">
-                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 p-1 flex items-center justify-center shadow-2xl shadow-orange-500/30">
-                        <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-                            <span class="text-6xl font-black text-orange-500">
-                                JB
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 소개 텍스트 -->
-                <div data-aos="fade-left">
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-                        PHP, MySQL, 서버 운영부터 시작한 경험 많은 풀스택 개발자입니다.
-                        기술적 깊이와 비즈니스 이해를 바탕으로 팀을 이끄는 것을 좋아합니다.
-                    </p>
-
-                    <!-- 키워드 뱃지 -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/50 text-blue-300 rounded-full text-sm font-medium">#풀스택</span>
-                        <span class="px-4 py-2 bg-violet-500/20 border border-violet-500/50 text-violet-300 rounded-full text-sm font-medium">#인프라</span>
-                        <span class="px-4 py-2 bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 rounded-full text-sm font-medium">#기술리더</span>
-                        <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/50 text-blue-300 rounded-full text-sm font-medium">#RESTful</span>
-                        <span class="px-4 py-2 bg-violet-500/20 border border-violet-500/50 text-violet-300 rounded-full text-sm font-medium">#PG연동</span>
-                    </div>
-                </div>
+      <!-- Dashboard mockup (사진 이미지 대신) -->
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="mockup-shell">
+          <div class="mockup-titlebar">
+            <div class="mockup-dots-row">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills 섹션 -->
-    <section id="skills" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center text-white" data-aos="fade-up">
-                기술 스택
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-16">
-                <!-- 핵심 역량 -->
-                <div data-aos="fade-right">
-                    <div class="flex items-center mb-10">
-                        <div class="w-1 h-10 bg-orange-500 rounded mr-4"></div>
-                        <h3 class="text-2xl font-bold text-white">핵심 역량</h3>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="skill-tag">
-                            <span class="text-lg">🐘</span>
-                            <span class="font-medium">PHP</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🖥️</span>
-                            <span class="font-medium">서버 운영</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">⚙️</span>
-                            <span class="font-medium">Shell Script</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">📜</span>
-                            <span class="font-medium">JavaScript / jQuery</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🔗</span>
-                            <span class="font-medium">RESTful API</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🗄️</span>
-                            <span class="font-medium">MySQL / Database</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">💳</span>
-                            <span class="font-medium">PG 사 연동</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🌐</span>
-                            <span class="font-medium">네트워크 & 방화벽</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 부가 역량 -->
-                <div data-aos="fade-left">
-                    <div class="flex items-center mb-10">
-                        <div class="w-1 h-10 bg-orange-500 rounded mr-4"></div>
-                        <h3 class="text-2xl font-bold text-white">부가 역량</h3>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="skill-tag">
-                            <span class="text-lg">📊</span>
-                            <span class="font-medium">MongoDB</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🤖</span>
-                            <span class="font-medium">Claude Code / CursorAI</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">⚛️</span>
-                            <span class="font-medium">Next.js / React</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🐍</span>
-                            <span class="font-medium">Python</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">📦</span>
-                            <span class="font-medium">Git & Version Control</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">⚡</span>
-                            <span class="font-medium">htaccess / mod_rewrite</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🔄</span>
-                            <span class="font-medium">MySQL Replication</span>
-                        </div>
-                        <div class="skill-tag">
-                            <span class="text-lg">🎨</span>
-                            <span class="font-medium">Laravel / CodeIgniter Framework</span>
-                        </div>
-                    </div>
-                </div>
+            <span class="mockup-titlebar-text">jayson.profile.json</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-row">
+              <span class="mockup-label">name</span>
+              <span class="mockup-val">Jayson.B</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio 섹션 -->
-    <section id="portfolio" class="py-20 px-4 bg-slate-800/20">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-white" data-aos="fade-up">
-                포트폴리오
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 카드 1: 커머스 플랫폼 -->
-                <div class="portfolio-card" data-aos="fade-up">
-                    <div class="portfolio-badge bg-orange-500"></div>
-                    <h3 class="text-xl font-bold text-white mb-3">커머스 플랫폼</h3>
-                    <p class="text-gray-400 text-sm mb-4">
-                        PHP/MySQL 기반의 고도화된 쇼핑몰 시스템.
-                        PG사 결제 연동 및 RESTful API로 구성된 완전한 전자상거래 플랫폼입니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">PHP</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">MySQL</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">RESTful</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">PG</span>
-                    </div>
-                    <a href="#" class="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm rounded-lg transition">
-                        자세히 보기 →
-                    </a>
-                </div>
-
-                <!-- 카드 2: 인프라 자동화 -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-badge bg-orange-500"></div>
-                    <h3 class="text-xl font-bold text-white mb-3">인프라 자동화</h3>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Ubuntu/CentOS 서버 환경 구축부터 Nginx 구성,
-                        Shell Script 기반 배포 자동화 시스템 개발 및 운영.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Ubuntu</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Nginx</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Shell</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">CI/CD</span>
-                    </div>
-                    <a href="#" class="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm rounded-lg transition">
-                        자세히 보기 →
-                    </a>
-                </div>
-
-                <!-- 카드 3: 관리자 대시보드 -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-badge bg-orange-500"></div>
-                    <h3 class="text-xl font-bold text-white mb-3">관리자 대시보드</h3>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Bootstrap과 jQuery 기반의 실시간 통계 대시보드.
-                        사용자 관리, 매출 현황, 시스템 모니터링을 한눈에 확인할 수 있습니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Bootstrap</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">jQuery</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">Chart.js</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full">AJAX</span>
-                    </div>
-                    <a href="#" class="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm rounded-lg transition">
-                        자세히 보기 →
-                    </a>
-                </div>
+            <div class="mockup-row">
+              <span class="mockup-label">role</span>
+              <span class="mockup-val mockup-val-accent">Fullstack Engineer</span>
             </div>
+            <div class="mockup-row">
+              <span class="mockup-label">experience</span>
+              <span class="mockup-val">25+ years</span>
+            </div>
+            <div class="mockup-divider"></div>
+            <div class="mockup-row">
+              <span class="mockup-label">primary</span>
+              <span class="mockup-val">PHP · Node.js · Python</span>
+            </div>
+            <div class="mockup-row">
+              <span class="mockup-label">infra</span>
+              <span class="mockup-val">Ubuntu · Nginx · Cloud</span>
+            </div>
+            <div class="mockup-row">
+              <span class="mockup-label">domain</span>
+              <span class="mockup-val">Fintech · Edu · Media</span>
+            </div>
+            <div class="mockup-divider"></div>
+            <div class="mockup-row">
+              <span class="mockup-label">status</span>
+              <span class="mockup-val">
+                <span class="mockup-status">
+                  <span class="mockup-status-dot"></span>Available
+                </span>
+              </span>
+            </div>
+            <div class="mockup-row">
+              <span class="mockup-label">ai.tools</span>
+              <span class="mockup-val">Claude Code · CursorAI</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Contact 섹션 -->
-    <section id="contact" class="py-20 px-4">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white" data-aos="fade-up">
-                함께 일해요
-            </h2>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-            <p class="text-lg text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="100">
-                프로젝트, 협업 기회, 또는 궁금한 점이 있으신가요?
+  <!-- STATS -->
+  <section class="stats" id="stats" aria-label="주요 수치">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number"><span class="counter" data-target="25">0</span><span class="stat-unit">년+</span></div>
+          <div class="stat-label">개발 경력</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number"><span class="counter" data-target="5">0</span><span class="stat-unit">개</span></div>
+          <div class="stat-label">산업 도메인</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number"><span class="counter" data-target="10">0</span><span class="stat-unit">+</span></div>
+          <div class="stat-label">PG · 금융 API 연동</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number"><span class="counter" data-target="7">0</span><span class="stat-unit">년+</span></div>
+          <div class="stat-label">팀 리딩 경력</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">About</div>
+        <h2 class="section-title">개발자 Jayson.B</h2>
+      </div>
+
+      <figure class="about-quote reveal">
+        <blockquote>
+          "사용자와 운영자가 모두 편해야<br>좋은 서비스입니다."
+        </blockquote>
+      </figure>
+
+      <div class="about-content">
+        <div class="about-text reveal">
+          <p>
+            개발을 시작한 <strong>2001년부터 지금까지 20년 이상</strong>, 광고 플랫폼부터 핀테크 금융 서비스,
+            교육 플랫폼, 콘텐츠 스트리밍까지 다양한 산업의 실서비스를 직접 구축하고 운영해왔습니다.
+          </p>
+          <p>
+            단순히 기능을 만드는 개발자가 아니라, <strong>서비스가 안정적으로 운영되고
+            비즈니스가 성장할 수 있도록</strong> 설계하는 것을 제 역할이라 생각합니다.
+            서버 인프라부터 프론트엔드까지, 장애 대응부터 팀 리딩까지 전 사이클을 경험했습니다.
+          </p>
+          <p>
+            최근에는 <strong>AI 바이브코딩 (CursorAI · Claude Code)</strong>을 적극 도입하여
+            개발 생산성을 한 차원 높이고 있으며, Next.js 기반 현대적 프론트엔드 역량도 지속적으로 확장 중입니다.
+          </p>
+        </div>
+
+        <div class="strengths-grid">
+          <div class="strength-card reveal">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/>
+              </svg>
+            </div>
+            <h3>실서비스 운영 중심</h3>
+            <p>단순 구축이 아닌 운영 중 장애 대응·성능 개선까지 전 사이클 경험</p>
+          </div>
+
+          <div class="strength-card reveal reveal-delay-1">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/>
+              </svg>
+            </div>
+            <h3>금융·결제 전문성</h3>
+            <p>P2P 금융 플랫폼 총괄, AML/KYC 구축, 금융감독원 실사 승인 기여</p>
+          </div>
+
+          <div class="strength-card reveal reveal-delay-2">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>
+              </svg>
+            </div>
+            <h3>Full Stack + 인프라</h3>
+            <p>백엔드·프론트·서버·운영·장애 대응을 단독으로 수행 가능한 넓은 역량</p>
+          </div>
+
+          <div class="strength-card reveal reveal-delay-1">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+              </svg>
+            </div>
+            <h3>조직 리딩 경험</h3>
+            <p>개발팀 부장/파트장으로 일정 관리 및 파트간 협업 체계 구축</p>
+          </div>
+
+          <div class="strength-card reveal reveal-delay-2">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+              </svg>
+            </div>
+            <h3>레거시 고도화</h3>
+            <p>기존 서비스 구조 분석 및 성능·안정성 개선 경험 풍부</p>
+          </div>
+
+          <div class="strength-card reveal reveal-delay-3">
+            <div class="strength-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/>
+              </svg>
+            </div>
+            <h3>AI 바이브코딩</h3>
+            <p>CursorAI · Claude Code 활용으로 Next.js·Python 개발 생산성 극대화</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Skills</div>
+        <h2 class="section-title">기술 스택</h2>
+        <p class="section-desc">핵심 역량부터 최신 AI 도구까지</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag-primary">PHP 7/8</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Shell Script</span>
+            <span class="skill-tag">RESTful API</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-1">
+          <div class="skill-group-label">Database</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag-primary">MySQL / MariaDB</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Replication</span>
+            <span class="skill-tag">sql_proxy</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-2">
+          <div class="skill-group-label">Server / Infra</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag-primary">Ubuntu / CentOS</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Apache</span>
+            <span class="skill-tag">SSH / FTP</span>
+            <span class="skill-tag">방화벽 · L4</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">jQuery</span>
+            <span class="skill-tag">VueJS</span>
+            <span class="skill-tag">Bootstrap / CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-1">
+          <div class="skill-group-label">Cloud / DevOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">NHN Cloud</span>
+            <span class="skill-tag">KT Cloud</span>
+            <span class="skill-tag">가비아 Cloud</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Git / GitLab</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-2">
+          <div class="skill-group-label">AI / 연동</div>
+          <div class="skill-tags">
+            <span class="skill-tag skill-tag-accent">CursorAI</span>
+            <span class="skill-tag skill-tag-accent">Claude Code</span>
+            <span class="skill-tag">PG 결제 연동</span>
+            <span class="skill-tag">금융 API</span>
+            <span class="skill-tag">카카오 알림톡</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER -->
+  <section class="career" id="career">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Career</div>
+        <h2 class="section-title">주요 경력</h2>
+        <p class="section-desc"></p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <div class="timeline-period">2023.12 — 2026.03</div>
+            <div class="timeline-duration">2년 4개월</div>
+          </div>
+          <div class="timeline-connector"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-company">테크트리</div>
+            <div class="timeline-position">개발팀 수석연구원</div>
+            <p class="timeline-desc">
+              교육 플랫폼 "격차닷컴" 서비스 고도화 및 쇼핑몰 셀러 분석 도구 "머신러닝(machinerunning.io)"
+              전체 개발. PG 결제 전환 (KG이니시스·네이버페이·카카오페이·토스페이), 화상 채팅 구축,
+              카카오 알림톡 연동, AI 바이브코딩 도입으로 생산성 개선.
             </p>
-
-            <!-- 연락처 링크 -->
-            <div class="flex flex-col sm:flex-row gap-12 justify-center" data-aos="fade-up" data-aos-delay="200">
-                <!-- 이메일 -->
-                <a href="mailto:sori9th@gmail.com" class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 transform hover:-translate-y-1">
-                    ✉️ 이메일 보내기
-                </a>
-
-                <!-- GitHub -->
-                <a href="https://github.com/BaeFather" target="_blank" class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 transform hover:-translate-y-1">
-                    🐙 GitHub 방문
-                </a>
+            <div class="timeline-tags">
+              <span>PHP</span><span>Next.js</span><span>Python</span><span>MariaDB</span><span>MongoDB</span><span>Ubuntu</span><span>CursorAI</span>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/10 py-8 px-4 mt-20">
-        <div class="max-w-6xl mx-auto text-center text-gray-400 text-sm">
-            <p>© 2024 Jayson.B. 모든 권리 보유.</p>
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <div class="timeline-period">2016.05 — 2023.02</div>
+            <div class="timeline-duration">6년 10개월</div>
+          </div>
+          <div class="timeline-connector"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-company">헬로핀테크</div>
+            <div class="timeline-position">IT고도화팀 부장 · 파트장</div>
+            <p class="timeline-desc">
+              P2P 크라우드 펀딩 플랫폼 "헬로펀딩" 전체 개발 총괄.
+              KSNET 금융 통신망 API, 금융결제원 마이데이터, AML/KYC 시스템 구축.
+              <strong>금융감독원 실사 적합 승인 획득</strong> — 개발 부문 총괄 책임.
+              NHN Cloud / KT Cloud / IDC 코로케이션 운영.
+            </p>
+            <div class="timeline-tags">
+              <span>PHP</span><span>MySQL</span><span>Linux</span><span>금융 API</span><span>AML/KYC</span><span>NHN Cloud</span>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <!-- 스크립트 -->
-    <script src="script.js"></script>
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <div class="timeline-period">2011.04 — 2015.09</div>
+            <div class="timeline-duration">4년 6개월</div>
+          </div>
+          <div class="timeline-connector"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-company">우정아이티에스</div>
+            <div class="timeline-position">개발팀 선임연구원 · 팀장</div>
+            <p class="timeline-desc">
+              인터넷 방송 플랫폼 misuda.tv, DRM 기반 콘텐츠 유통 cirple.co.kr,
+              CPC 광고 랜딩 시스템 linknetwork.co.kr 등 다수 플랫폼 개발 총괄.
+            </p>
+            <div class="timeline-tags">
+              <span>PHP</span><span>MySQL</span><span>Linux</span><span>DRM</span><span>Apache</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <div class="timeline-period">2001 — 2011</div>
+            <div class="timeline-duration">초기 커리어</div>
+          </div>
+          <div class="timeline-connector"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-company">퓨즈커뮤니케이션 · 클라우드팡 외</div>
+            <div class="timeline-position">개발팀 과장 · 팀장</div>
+            <p class="timeline-desc">
+              보안 프로그램 API, 광고 수익형 플랫폼, 웹하드 서비스, 게임 포탈 등
+              다양한 유형의 웹 서비스 개발 및 서버 운영. 쇼핑몰·포털·제휴 마케팅 플랫폼 개발 경험.
+            </p>
+            <div class="timeline-tags">
+              <span>PHP</span><span>MySQL</span><span>Linux</span><span>Apache</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner reveal">
+        <div class="section-badge">Contact</div>
+        <h2 class="contact-title">함께 일해보시겠어요?</h2>
+        <p class="contact-desc">
+          오랜 경험과 안정적인 운영 능력을 갖춘 개발자를 찾고 계신다면<br>
+          언제든 편하게 연락 주세요.
+        </p>
+
+        <div class="contact-cards">
+          <a href="mailto:sori9th@naver.com" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+              </svg>
+            </div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">이메일</div>
+              <div class="contact-card-value">sori9th@naver.com</div>
+            </div>
+            <svg class="contact-card-arrow" width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
+          </a>
+
+          <a href="https://github.com/BaeFather" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">GitHub</div>
+              <div class="contact-card-value">github.com/BaeFather</div>
+            </div>
+            <svg class="contact-card-arrow" width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="contact-actions">
+          <a href="mailto:sori9th@naver.com" class="btn btn-primary btn-lg">이메일 보내기</a>
+          <a href="https://github.com/BaeFather" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">GitHub 방문</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Jayson<span>.</span>B</div>
+      <div class="footer-text">© 2026 Jayson.B. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://github.com/BaeFather" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
