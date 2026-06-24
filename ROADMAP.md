@@ -1,109 +1,89 @@
-# 프로필 웹사이트 구현 계획
+# 프로필 사이트 로드맵
 
-## Context
-Jayson.B를 위한 개인 프로필 웹사이트를 처음부터 생성. 풀스택 개발자의 역량과 경험을 모던하고 깔끔하게 표현하는 단일 HTML 파일 사이트를 제작한다.
-
----
-
-## 구성 파일
-
-| 파일 | 역할 |
-|---|---|
-| `CLAUDE.md` | Claude Code 작업 가이드 (한국어 규칙 포함) |
-| `index.html` | 메인 HTML 구조 + Tailwind CDN |
-| `style.css` | Tailwind로 표현 불가한 커스텀 애니메이션/효과 |
-| `script.js` | 스크롤 애니메이션, 네비게이션, 타이핑 효과 |
+Jayson.B 개인 프로필 사이트의 개발 현황 및 향후 계획.  
+모든 신규 작업은 `DESIGN.md`의 Stripe 영감 디자인 시스템을 따라야 한다.
 
 ---
 
-## 페이지 구조 (섹션별)
+## 현재 상태 (v1.0 완료)
 
-### 1. 네비게이션 (fixed top)
-- 좌: 로고 — "Jayson.B" 텍스트 (blue→violet 그라데이션)
-- 우: 메뉴 링크 4개 — **About / Skills / Portfolio / Contact**
-- 활성 섹션 메뉴 항목: emerald 컬러 하이라이트
-- 스크롤 시 배경 `bg-slate-900/80 backdrop-blur-md` 전환
-- 모바일: 햄버거 아이콘 → 드롭다운 메뉴
+### 완료된 작업
 
-### 2. Hero 섹션
-- 풀스크린 높이 (min-h-screen)
-- 이름 "Jayson.B" 대형 타이포
-- 타이핑 애니메이션: "풀스택 개발자", "기술 리더", "인프라 엔지니어" 순환
-- 소개문 두 줄 표시
-- CTA 버튼: "포트폴리오 보기" → Portfolio 섹션으로 스크롤
-- 배경: 다크 그라데이션 + 미묘한 도트/그리드 패턴
-
-### 3. About 섹션
-- 좌: 프로필 아바타(이니셜 기반 SVG 아이콘)
-- 우: 역할 소개 텍스트 + 키워드 뱃지
-- 키워드 뱃지 예시: #풀스택 #인프라 #기술리더 #RESTful #PG연동
-
-### 4. Skills 섹션
-- **핵심 역량** 카드 그룹 (PHP, 서버 운영, Shell, JS/jQuery, Bootstrap, RESTful API, PG사 연동, 네트워크/방화벽)
-- **부가 역량** 카드 그룹 (MongoDB, MySQL Replication, htaccess, NextJS, Python, CI/Laravel, ASP, GIT)
-- 각 스킬: 아이콘(Devicons 또는 이모지) + 이름 + 간단 설명
-
-### 5. Portfolio 섹션
-- 3열 그리드 카드 (반응형 → 모바일 1열)
-- **카드 3개 고정 배치** (glassmorphism 스타일):
-  - 카드 1: "커머스 플랫폼" — PHP/MySQL/RESTful API 기반 쇼핑몰 구축 + PG사 연동
-  - 카드 2: "인프라 자동화" — Ubuntu 서버 세팅 + Shell Script 배포 자동화 + Nginx 구성
-  - 카드 3: "관리자 대시보드" — Bootstrap/jQuery 기반 실시간 통계 대시보드
-- 각 카드 구성: 상단 컬러 배지(blue/violet/emerald), 프로젝트명, 설명, 기술 태그 뱃지, "자세히 보기" 버튼
-- 호버 시 카드 위로 살짝 이동 + glow 효과
-
-### 6. Contact 섹션
-- 중앙 정렬 심플 레이아웃
-- 이메일 링크 (sori9th@gmail.com) + GitHub 링크 플레이스홀더
-- 소셜 아이콘 링크
-- "함께 일해요" 톤의 카피
-
-### 7. Footer
-- 저작권 텍스트
+- [x] **Stripe 디자인 시스템 전면 적용** — 라이트 모드, 인디고 브랜드, 디자인 토큰 정의
+- [x] **Hero 섹션** — 그라디언트 메시 배경, 타이핑 애니메이션, 대시보드 목업 카드
+- [x] **Stats 섹션** — 주요 수치 카운터 애니메이션 (경력·도메인·PG연동·팀리딩)
+- [x] **About 섹션** — 인용구 + 6개 핵심 강점 카드
+- [x] **Skills 섹션** — 6개 스킬 그룹 (Backend / DB / Infra / Frontend / Cloud / AI)
+- [x] **Career 섹션** — 타임라인 (테크트리 · 헬로핀테크 · 우정아이티에스 · 초기 커리어)
+- [x] **Contact 섹션** — 이메일 · GitHub 카드
+- [x] **반응형** — 1024 / 768 / 520px 3단계 브레이크포인트
+- [x] **Intersection Observer** — 외부 라이브러리 없이 자체 구현 (reveal + counter)
+- [x] **Pretendard 폰트** — 한글 weight 300 지원, 디스플레이 -1.4px 트래킹
+- [x] **개인정보 보호** — 실명 제거(Jayson.B 대체), 전화번호 공개 제거
 
 ---
 
-## 디자인 시스템
+## 단기 계획 (v1.1)
 
-| 요소 | 값 |
-|---|---|
-| 색상 테마 | 다크 배경: `#0a0f1e` / 주요 강조: `#3b82f6` (blue-500) / 보조 강조: `#8b5cf6` (violet-500) / 포인트: `#10b981` (emerald-500) |
-| 그라데이션 | `from-blue-600 via-violet-600 to-emerald-500` 텍스트 및 버튼에 활용 |
-| 폰트 | Google Fonts — Inter (영문) |
-| 카드 스타일 | 반투명 glassmorphism (`backdrop-blur`, `bg-white/5`, `border border-white/10`) |
-| 애니메이션 | AOS (Animate on Scroll) CDN + CSS Intersection Observer |
-| 아이콘 | Heroicons (SVG inline) + 이모지 보완 |
+### 콘텐츠 보강
+
+- [ ] **프로젝트 섹션** — 대표 프로젝트 카드 (격차닷컴 · 헬로펀딩 · machinerunning.io)
+  - 카드: 프로젝트명, 설명, 기술 태그, 역할, 성과 지표
+  - `card-feature-light` 스타일 적용 (`DESIGN.md` 참조)
+- [ ] **수상·자격 섹션** — 주요 자격증·성과 배지 형태로 표시
+- [ ] **연락처 폼** — 이름·이메일·메시지 입력 폼 (정적 사이트이므로 Formspree 연동)
+
+### UI 개선
+
+- [ ] **다크모드 토글** — `prefers-color-scheme` 미디어 쿼리 + 토글 버튼
+- [ ] **히어로 애니메이션 개선** — 그라디언트 메시 블롭에 느린 이동 효과 추가
+- [ ] **페이지 상단 진행 바** — 스크롤 진행률 표시 (1px 인디고 라인)
 
 ---
 
-## CDN 의존성
+## 중기 계획 (v2.0)
 
-```html
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<!-- AOS 애니메이션 -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+### 다중 페이지 구조 전환
+
+현재 단일 `index.html` 구조에서 아래 페이지로 확장:
+
+| 페이지 | 경로 | 설명 |
+|--------|------|------|
+| 메인 | `/` | 현재 index.html (소개 랜딩) |
+| 프로젝트 | `/projects.html` | 전체 프로젝트 상세 목록 |
+| 블로그 | `/blog.html` | 기술 아티클 목록 (정적 MD 기반) |
+
+### 기술 전환 검토
+
+- [ ] **Next.js 마이그레이션** — 정적 사이트 생성(SSG)으로 전환, SEO 최적화
+- [ ] **CMS 연동** — Notion API 또는 마크다운 파일 기반 콘텐츠 관리
+- [ ] **OG 이미지 자동 생성** — 공유 시 썸네일 자동 생성
+
+---
+
+## 디자인 원칙 (필수 준수)
+
+> 신규 섹션·컴포넌트 추가 시 `DESIGN.md`를 먼저 확인할 것.
+
+| 항목 | 규칙 |
+|------|------|
+| 색상 | `--primary: #533afd` 만 CTA 버튼·링크에 사용. 본문 텍스트에 사용 금지 |
+| 타이포 | 디스플레이(32px+): `font-weight: 300` / 본문·라벨: `font-weight: 400` |
+| 버튼 | `border-radius: 9999px` pill 형태, padding 최소 `8px 16px` |
+| 카드 | `border-radius: 12px`, `border: 1px solid #e3e8ee`, 블루 톤 그림자 |
+| 사진 | 인물 사진 사용 금지 — 대신 UI 목업·코드 스니펫·다이어그램으로 대체 |
+| 배경 | 히어로에 그라디언트 메시 필수. 이하 섹션은 `--canvas` / `--canvas-soft` 교대 |
+
+---
+
+## 파일 구조 (현재)
+
 ```
-
----
-
-## JavaScript 기능
-
-- `AOS.init()` — 스크롤 진입 시 요소 페이드인
-- Typed.js 스타일 타이핑 애니메이션 (직접 구현, 추가 CDN 없이)
-- 네비게이션 스크롤 감지 → 배경 전환
-- 모바일 햄버거 메뉴 토글
-- 현재 섹션 하이라이트 (active nav link)
-
----
-
-## 검증 방법
-
-1. `index.html`을 브라우저에서 직접 열기 (file:// 프로토콜)
-2. 각 섹션 스크롤 진입 애니메이션 확인
-3. 모바일 뷰 (375px) 반응형 레이아웃 확인
-4. 타이핑 애니메이션 루프 동작 확인
-5. CTA 버튼 앵커 스크롤 동작 확인
+my-profile-site/
+├── index.html     # 단일 페이지 전체 구조
+├── style.css      # 디자인 토큰 + 컴포넌트 스타일
+├── script.js      # Intersection Observer, 카운터, 타이핑, 내비게이션
+├── DESIGN.md      # Stripe 영감 디자인 시스템 명세 (토큰 원본)
+├── CLAUDE.md      # Claude Code 작업 가이드
+└── README.md      # 프로젝트 소개 및 실행 방법
+```
